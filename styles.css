@@ -1,0 +1,361 @@
+/* Bitcoin Farmers Market — El Salvador
+ * brand palette pulled from the actual logo + posters:
+ *  sage    #a8b878   logo bg
+ *  cream   #f4ead5   poster bg
+ *  ink     #1a1f15   logo text
+ *  rust    #d4612c   poster accent
+ *  forest  #2c3526
+ *  sun     #e7c873   highlight
+ */
+
+:root {
+  --sage:    #a8b878;
+  --sage-2:  #889b5a;
+  --sage-d:  #6f8347;
+  --cream:   #f4ead5;
+  --cream-2: #e8d9b7;
+  --ink:     #14180f;
+  --forest:  #2c3526;
+  --rust:    #d4612c;
+  --rust-d:  #b04e1d;
+  --sun:     #e7c873;
+  --paper:   #fbf6e9;
+  --shadow:  0 8px 30px -10px rgba(20,24,15,.25);
+  --radius:  14px;
+  --maxw:    1180px;
+  --font-display: 'Bungee', 'Impact', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: var(--rust-d); text-decoration: none; }
+a:hover { color: var(--rust); }
+img { max-width: 100%; height: auto; display: block; }
+
+.container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+/* ─── topbar ────────────────────────────────────────────── */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; gap: 16px;
+  padding: 12px 24px;
+  background: rgba(168,184,120,.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid var(--sage-d);
+}
+.brand {
+  display: inline-flex; align-items: center; gap: 10px;
+  color: var(--ink); font-weight: 600; letter-spacing: .01em;
+}
+.brand img { border-radius: 50%; box-shadow: 0 0 0 2px var(--ink); }
+.brand strong { font-family: var(--font-display); font-weight: 400; letter-spacing: .04em; }
+.nav { margin-left: auto; display: flex; gap: 18px; }
+.nav a { color: var(--ink); font-weight: 600; font-size: .95rem; }
+.nav a:hover { color: var(--rust-d); }
+.lang-btn {
+  appearance: none; border: 2px solid var(--ink);
+  background: transparent; color: var(--ink);
+  border-radius: 999px; padding: 6px 14px; font-weight: 700;
+  cursor: pointer; font-family: var(--font-body); transition: .18s;
+}
+.lang-btn:hover { background: var(--ink); color: var(--sage); }
+
+@media (max-width: 720px) {
+  .nav { display: none; }
+}
+
+/* ─── hero ─────────────────────────────────────────────── */
+.hero {
+  position: relative; overflow: hidden;
+  min-height: 88vh; display: grid; place-items: center;
+  text-align: center; padding: 80px 24px 100px;
+  isolation: isolate;
+  background: linear-gradient(180deg, var(--sage) 0%, var(--sage-2) 100%);
+  color: var(--ink);
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('/images/brand/banner.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: .35;
+  filter: blur(2px) saturate(1.05);
+  z-index: -1;
+}
+.hero::after {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none; z-index: -1;
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(20,24,15,.45) 0%, transparent 60%),
+    linear-gradient(180deg, transparent 50%, rgba(20,24,15,.18) 100%);
+}
+.hero-inner { max-width: 880px; }
+.hero-logo {
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  box-shadow: 0 14px 50px -8px rgba(20,24,15,.55), 0 0 0 4px var(--ink);
+  margin-bottom: 24px;
+  background: var(--sage);
+}
+.kicker {
+  display: inline-block;
+  font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  font-size: .78rem;
+  background: var(--ink); color: var(--sun);
+  padding: 8px 16px; border-radius: 999px;
+  margin: 0 0 18px;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  line-height: 1.05;
+  letter-spacing: .01em;
+  margin: 0 0 18px;
+  color: var(--ink);
+}
+.hero .tag {
+  font-size: 1.05rem; font-weight: 500;
+  margin: 0 0 28px;
+}
+.hero .tag .hl { background: var(--rust); color: var(--cream); padding: 2px 10px; border-radius: 6px; }
+.hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+.hero .when {
+  display: inline-block;
+  font-family: var(--font-display); letter-spacing: .03em;
+  font-size: 1.1rem; padding: 10px 22px;
+  background: var(--cream); color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+}
+
+/* ─── buttons ──────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 26px; border-radius: 999px;
+  font-weight: 700; font-size: .98rem;
+  text-decoration: none;
+  border: 2px solid var(--ink);
+  transition: transform .18s, background .18s, color .18s;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn.primary { background: var(--ink); color: var(--cream); }
+.btn.primary:hover { background: var(--rust-d); color: var(--cream); }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn.ghost:hover { background: var(--ink); color: var(--cream); }
+.btn.small { padding: 9px 16px; font-size: .88rem; }
+
+/* ─── about / pillars ─────────────────────────────────── */
+.about { padding: 90px 0 70px; background: var(--paper); }
+.about h2,
+.markets h2,
+.offerings h2,
+.gallery h2,
+.posters h2,
+.videos h2,
+.cta-vendor h2,
+.connect h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+  letter-spacing: .015em;
+  margin: 0 0 8px;
+  color: var(--forest);
+}
+.about .lead {
+  max-width: 780px;
+  font-size: 1.1rem;
+  margin: 0 0 40px;
+}
+.lede { color: var(--forest); margin: 0 0 28px; }
+
+.pillars { list-style: none; padding: 0; margin: 40px 0 0;
+  display: grid; gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.pillars li {
+  background: var(--cream);
+  padding: 24px 22px;
+  border-radius: var(--radius);
+  border: 2px solid var(--ink);
+}
+.pillars strong { display: block; font-family: var(--font-display); font-weight: 400; letter-spacing: .02em; font-size: 1.1rem; margin: 0 0 6px; }
+.pillars p { margin: 0; font-size: .98rem; }
+.pillar-icon { font-size: 1.8rem; display: inline-block; margin-bottom: 8px; }
+
+/* ─── markets ─────────────────────────────────────────── */
+.markets { padding: 80px 0; background: var(--sage); border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); }
+.markets h2 { color: var(--ink); }
+.markets .lede { color: var(--ink); }
+.market-grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-top: 24px; }
+.market-card {
+  background: var(--cream);
+  border: 3px solid var(--ink);
+  border-radius: var(--radius);
+  padding: 28px 26px;
+  box-shadow: 8px 8px 0 var(--ink);
+}
+.market-card h3 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 2rem; letter-spacing: .02em; margin: 0;
+}
+.market-card .sub { margin: 4px 0 16px; font-weight: 600; color: var(--rust-d); }
+.market-card .addr { margin: 0 0 12px; font-size: 1rem; }
+.market-card .when-line { margin: 0 0 16px; font-weight: 600; }
+.market-tags { list-style: none; padding: 0; margin: 0 0 20px; display: flex; flex-wrap: wrap; gap: 6px; }
+.market-tags li {
+  background: var(--ink); color: var(--sage);
+  padding: 4px 12px; border-radius: 999px;
+  font-size: .82rem; font-weight: 700;
+}
+.market-cta { display: flex; gap: 10px; flex-wrap: wrap; }
+.markets .note { margin-top: 26px; color: var(--ink); font-size: .95rem; font-weight: 500; }
+
+/* ─── offerings ───────────────────────────────────────── */
+.offerings { padding: 90px 0; background: var(--cream); border-bottom: 3px solid var(--ink); }
+.offer-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); margin-top: 28px; }
+.offer {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  padding: 18px 18px 16px;
+  font-size: 1.7rem; line-height: 1;
+}
+.offer strong { display: block; font-size: 1rem; margin: 8px 0 4px; font-weight: 700; color: var(--forest); }
+.offer span { display: block; font-size: .9rem; line-height: 1.4; color: var(--ink); opacity: .8; }
+
+/* ─── gallery ─────────────────────────────────────────── */
+.gallery { padding: 90px 0; background: var(--paper); }
+.grid {
+  display: grid; gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  margin-top: 28px;
+}
+.gitem {
+  display: block; aspect-ratio: 1 / 1; overflow: hidden;
+  border-radius: 10px;
+  border: 3px solid var(--ink);
+  background: var(--cream-2);
+  cursor: zoom-in;
+  position: relative;
+  transition: transform .25s;
+}
+.gitem:hover { transform: translateY(-2px) rotate(-.4deg); }
+.gitem img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s; }
+.gitem:hover img { transform: scale(1.05); }
+
+/* ─── posters ─────────────────────────────────────────── */
+.posters { padding: 70px 0; background: var(--sage); border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); }
+.posters h2, .posters .lede { color: var(--ink); }
+.poster-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); margin-top: 24px; }
+.poster-grid .gitem { aspect-ratio: 1 / 1; border-color: var(--ink); }
+
+/* ─── videos ──────────────────────────────────────────── */
+.videos { padding: 90px 0; background: var(--paper); }
+.video-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); margin-top: 24px; }
+.vcard {
+  position: relative; display: block; overflow: hidden;
+  border-radius: 12px; border: 3px solid var(--ink);
+  background: var(--ink);
+  aspect-ratio: 16 / 9;
+  color: var(--cream);
+}
+.vcard img { width: 100%; height: 100%; object-fit: cover; opacity: .85; transition: opacity .25s, transform .35s; }
+.vcard:hover img { opacity: 1; transform: scale(1.05); }
+.vcard .play {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  font-size: 3rem; color: var(--cream);
+  text-shadow: 0 0 20px rgba(0,0,0,.7);
+  pointer-events: none;
+  transition: transform .25s;
+}
+.vcard:hover .play { transform: scale(1.15); }
+.vcard span {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 28px 14px 10px;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,.85));
+  color: var(--cream); font-weight: 600; font-size: .95rem;
+}
+
+/* ─── vendor cta ──────────────────────────────────────── */
+.cta-vendor {
+  padding: 80px 0;
+  background: var(--rust);
+  color: var(--cream);
+  border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink);
+  text-align: center;
+}
+.cta-vendor h2 { color: var(--cream); }
+.cta-vendor p { max-width: 640px; margin: 0 auto 22px; font-size: 1.05rem; }
+.cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.cta-vendor .btn.primary { background: var(--ink); color: var(--cream); }
+.cta-vendor .btn.primary:hover { background: var(--cream); color: var(--ink); }
+.cta-vendor .btn.ghost { color: var(--cream); border-color: var(--cream); }
+.cta-vendor .btn.ghost:hover { background: var(--cream); color: var(--ink); }
+
+/* ─── connect ─────────────────────────────────────────── */
+.connect { padding: 80px 0; background: var(--paper); }
+.links { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-top: 24px; }
+.link-card {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--cream); border: 2px solid var(--ink); border-radius: var(--radius);
+  padding: 16px 18px;
+  color: var(--ink);
+  transition: .18s;
+}
+.link-card:hover { transform: translateY(-2px); background: var(--sage); color: var(--ink); }
+.link-card .ico { font-size: 1.8rem; flex: 0 0 auto; line-height: 1; }
+.link-card .lc-text { display: flex; flex-direction: column; min-width: 0; }
+.link-card strong { font-weight: 700; font-size: 1rem; line-height: 1.2; }
+.link-card em { font-style: normal; opacity: .72; font-size: .85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ─── footer ──────────────────────────────────────────── */
+.footer {
+  padding: 50px 0 60px;
+  background: var(--ink);
+  color: var(--cream);
+  text-align: center;
+  border-top: 4px solid var(--rust);
+}
+.footer .muted { color: var(--cream-2); font-size: .92rem; margin: 8px 0; }
+.footer .tiny { color: var(--cream-2); opacity: .6; font-size: .75rem; }
+.footer a { color: var(--sun); }
+.footer a:hover { color: var(--cream); }
+
+/* ─── lightbox ────────────────────────────────────────── */
+.lightbox {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(20,24,15,.92);
+  display: grid; place-items: center;
+  padding: 30px;
+}
+.lightbox[hidden] { display: none; }
+.lightbox img { max-width: 100%; max-height: 92vh; object-fit: contain; border-radius: 8px; }
+.lightbox button {
+  position: absolute; appearance: none; border: none;
+  background: rgba(244,234,213,.15); color: var(--cream);
+  width: 50px; height: 50px; font-size: 2.4rem; line-height: 1;
+  border-radius: 50%; cursor: pointer; transition: .18s;
+}
+.lightbox button:hover { background: rgba(244,234,213,.4); }
+.lb-close { top: 20px; right: 20px; font-size: 2rem; }
+.lb-prev  { left: 20px; top: 50%; transform: translateY(-50%); }
+.lb-next  { right: 20px; top: 50%; transform: translateY(-50%); }
+
+/* ─── responsive ──────────────────────────────────────── */
+@media (max-width: 540px) {
+  .hero { min-height: 78vh; padding: 60px 16px 70px; }
+  .hero-logo { width: 140px; height: 140px; }
+  .container { padding: 0 18px; }
+  .topbar { padding: 10px 16px; gap: 10px; }
+  .market-card { padding: 22px 18px; box-shadow: 6px 6px 0 var(--ink); }
+}
