@@ -7,7 +7,7 @@ const I18N = {
     'nav.videos': 'Videos',
     'nav.connect': 'Connect',
     'hero.kicker': '⚡️ Have fun staying permissionless ⚡️',
-    'hero.title': 'A weekly bitcoin market on the Salvadoran coast.',
+    'hero.title': 'A Bi weekly bitcoin market on the Salvadoran coast.',
     'hero.preferred': 'Bitcoin preferido',
     'hero.cta1': 'Find a market',
     'hero.cta2': "What's there?",
