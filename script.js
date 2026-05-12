@@ -63,7 +63,7 @@ const I18N = {
     'nav.videos': 'Videos',
     'nav.connect': 'Conectar',
     'hero.kicker': '⚡️ Diviértete quedándote permissionless ⚡️',
-    'hero.title': 'Un mercado bitcoin semanal en la costa salvadoreña.',
+    'hero.title': 'Un mercado bitcoin quincenal en la costa salvadoreña.',
     'hero.preferred': 'Bitcoin preferido',
     'hero.cta1': 'Encuentra un mercado',
     'hero.cta2': '¿Qué hay?',
